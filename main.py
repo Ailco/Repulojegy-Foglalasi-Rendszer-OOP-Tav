@@ -8,9 +8,9 @@ from foglalasi_rendszer import FoglalasiRendszer
 def main():
     wizz_air = LegiTarsasag("Wizz Air")
 
-    j1 = BelfoldiJarat("W6 2352", "Kaposvár", 5000)
-    j2 = NemzetkoziJarat("W6 2368", "Párizs", 25000)
-    j3 = NemzetkoziJarat("W6 2394", "Lisszabon", 30000)
+    j1 = BelfoldiJarat("W6 2352", "Kaposvár", 5000, 35)
+    j2 = NemzetkoziJarat("W6 2368", "Párizs", 20000, 145)
+    j3 = NemzetkoziJarat("W6 2394", "Lisszabon", 15000, 180)
 
     wizz_air.jarat_hozzaadasa(j1)
     wizz_air.jarat_hozzaadasa(j2)
@@ -51,9 +51,10 @@ def main():
             rendszer.foglalasok_listazasa()
             utas_nev = input("Kérem a lemondani kívánt foglalás utasának nevét: ")
             jaratszam = input("Kérem a járatszámot: ")
+            datum_str = input("Kérem a foglalás dátumát (ÉÉÉÉ-HH-NN): ")
             
             try:
-                if rendszer.foglalas_lemondasa(utas_nev, jaratszam):
+                if rendszer.foglalas_lemondasa(utas_nev, jaratszam, datum_str):
                     print(f"\nA(z) {utas_nev} nevű utas {jaratszam} számú járatra szóló foglalása sikeresen törölve.")
             except ValueError as e:
                 print(f"\nHiba történt a lemondás során: {e}")

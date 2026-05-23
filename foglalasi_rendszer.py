@@ -14,7 +14,24 @@ class FoglalasiRendszer:
         print(f"\n--- {self._legitarsasag.nev} Elérhető Járatok ---")
         for jarat in self._legitarsasag.jaratok:
             tipus = "Belföldi" if isinstance(jarat, BelfoldiJarat) else "Nemzetközi"
-            print(f"[{tipus}] Járatszám: {jarat.jaratszam} | Uticél: {jarat.uticel} | Ár: {jarat.get_ar():.0f} HUF")
+            if tipus == "Nemzetközi":
+                print(
+                    f"[{tipus}] "
+                    f"Járatszám: {jarat.jaratszam} | "
+                    f"Uticél: {jarat.uticel} | "
+                    f"Repülési idő: {jarat.repulesi_ido} perc | "
+                    f"Alapár: {jarat.jegyar:.0f} HUF | "
+                    f"Felár: +50% | "
+                    f"Végső ár: {jarat.get_ar():.0f} HUF"
+                )
+            else:
+                print(
+                    f"[{tipus}] "
+                    f"Járatszám: {jarat.jaratszam} | "
+                    f"Uticél: {jarat.uticel} | "
+                    f"Repülési idő: {jarat.repulesi_ido} perc | "
+                    f"Ár: {jarat.get_ar():.0f} HUF"
+                )
         print("-----------------------------------")
 
     def jegy_foglalasa(self, jaratszam, utas_nev, datum_str):
@@ -45,9 +62,15 @@ class FoglalasiRendszer:
         self._foglalasok.append(uj_foglalas)
         return kivalasztott_jarat.get_ar()
 
-    def foglalas_lemondasa(self, utas_nev, jaratszam):
+    def foglalas_lemondasa(self, utas_nev, jaratszam, datum_str):
+
+        lemondasi_datum = datetime.strptime(datum_str, "%Y-%m-%d")
         for foglalas in self._foglalasok:
-            if foglalas.utas_nev == utas_nev and foglalas.jarat.jaratszam == jaratszam:
+            if (
+                foglalas.utas_nev == utas_nev
+                and foglalas.jarat.jaratszam == jaratszam
+                and foglalas.datum.date() == lemondasi_datum.date()
+            ):
                 self._foglalasok.remove(foglalas)
                 return True
         raise ValueError("Nem található a megadott adatokhoz tartozó aktív foglalás.")

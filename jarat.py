@@ -31,3 +31,6 @@ class Jarat(ABC):
     @abstractmethod
     def get_ar(self) -> float:
         pass
+    
+    def __str__(self):
+        return f"{self._jaratszam} - {self._uticel}"

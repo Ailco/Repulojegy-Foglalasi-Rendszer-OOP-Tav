@@ -1,5 +1,9 @@
 class JegyFoglalas:
     def __init__(self, jarat, utas_nev, datum):
+        if not utas_nev.strip():
+            raise ValueError("Az utas neve nem lehet üres.")
+        if datum is None:
+            raise ValueError("A dátum megadása kötelező.")
         self._jarat = jarat
         self._utas_nev = utas_nev
         self._datum = datum
