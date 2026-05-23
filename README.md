@@ -1,17 +1,35 @@
-Repulojegy Foglalasi Rendszer - OOP Tav
+# Repülőjegy Foglalási Rendszer
 
-Funkciók
+Egyszerű konzolos Python alkalmazás repülőjegyek foglalására, lemondására és az aktív foglalások listázására.
 
-- Járatok listázása
-- Jegy foglalása
-- Foglalás lemondása
-- Aktív foglalások megtekintése
+## Funkciók
 
-Osztályok
+- elérhető járatok listázása
+- jegyfoglalás név, járatszám és dátum alapján
+- foglalás lemondása
+- aktív foglalások megtekintése
+- hibás adatok kezelése
+- múltbeli dátum tiltása
+- nemzetközi járatoknál 50% felár számítása
 
-- Jarat (absztrakt osztály)
-- BelfoldiJarat
-- NemzetkoziJarat
-- LegiTarsasag
-- JegyFoglalas
-- FoglalasiRendszer
+## Osztályok
+
+- `Jarat`: absztrakt ősosztály
+- `BelfoldiJarat`: belföldi járatok kezelése
+- `NemzetkoziJarat`: nemzetközi járatok kezelése
+- `LegiTarsasag`: járatok tárolása
+- `JegyFoglalas`: egy foglalás adatai
+- `FoglalasiRendszer`: foglalási műveletek kezelése
+
+## Előre betöltött adatok
+
+A program induláskor tartalmaz:
+
+- 1 légitársaságot
+- 3 járatot
+- 6 előre létrehozott foglalást
+
+## Futtatás
+
+```bash
+python main.py

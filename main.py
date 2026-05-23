@@ -18,13 +18,13 @@ def main():
 
     rendszer = FoglalasiRendszer(wizz_air)
     
-    alap_datum = datetime(2026, 7, 20)
-    rendszer.alap_foglalas_hozzaadasa(JegyFoglalas(j1, "Kovács Luca", alap_datum))
-    rendszer.alap_foglalas_hozzaadasa(JegyFoglalas(j1, "Varga Anna", alap_datum))
-    rendszer.alap_foglalas_hozzaadasa(JegyFoglalas(j2, "Nagy Lili", alap_datum))
-    rendszer.alap_foglalas_hozzaadasa(JegyFoglalas(j2, "Takács Barbara", alap_datum))
-    rendszer.alap_foglalas_hozzaadasa(JegyFoglalas(j3, "Horváth Bence", alap_datum))
-    rendszer.alap_foglalas_hozzaadasa(JegyFoglalas(j3, "Kiss Dávid", alap_datum))
+    alap_datum = datetime(2026, 6, 15)
+    rendszer.alap_foglalas_hozzaadasa(JegyFoglalas(j1, "Kovács Luca", datetime(2026, 7, 20)))
+    rendszer.alap_foglalas_hozzaadasa(JegyFoglalas(j1, "Varga Anna", datetime(2026, 7, 21)))
+    rendszer.alap_foglalas_hozzaadasa(JegyFoglalas(j2, "Nagy Lili", datetime(2026, 8, 5)))
+    rendszer.alap_foglalas_hozzaadasa(JegyFoglalas(j2, "Takács Barbara", datetime(2026, 8, 6)))
+    rendszer.alap_foglalas_hozzaadasa(JegyFoglalas(j3, "Horváth Bence", datetime(2026, 9, 10)))
+    rendszer.alap_foglalas_hozzaadasa(JegyFoglalas(j3, "Kiss Dávid", datetime(2026, 9, 11)))
 
     while True:
         print("\n=== REPÜLŐJEGY FOGLALÁSI RENDSZER ===")
