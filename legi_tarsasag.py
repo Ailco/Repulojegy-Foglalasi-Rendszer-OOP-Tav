@@ -9,7 +9,7 @@ class LegiTarsasag:
 
     @property
     def jaratok(self):
-        return self._jaratok
+        return self._jaratok.copy()
 
     def jarat_hozzaadasa(self, jarat):
         self._jaratok.append(jarat)

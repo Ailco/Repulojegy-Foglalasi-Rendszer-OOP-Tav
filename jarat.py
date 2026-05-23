@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-
+# Absztrakt ősosztály a különböző járattípusokhoz
 class Jarat(ABC):
     def __init__(self, jaratszam: str, uticel: str, jegyar: int):
         if not jaratszam.strip():
@@ -32,5 +32,6 @@ class Jarat(ABC):
     def get_ar(self) -> float:
         pass
     
+    # Meghatározza hogyan jelenjen meg a járat szövegként
     def __str__(self):
         return f"{self._jaratszam} - {self._uticel}"

@@ -34,10 +34,12 @@ class FoglalasiRendszer:
                 )
         print("-----------------------------------")
 
+    # Új jegyfoglalás létrehozása
     def jegy_foglalasa(self, jaratszam, utas_nev, datum_str):
         if not utas_nev.strip():
             raise ValueError("Az utas neve nem lehet üres.")
         try:
+            # Ellenőrzi hogy a megadott dátum érvényes-e
             foglalas_ideje = datetime.strptime(datum_str, "%Y-%m-%d")
             if foglalas_ideje.date() < datetime.now().date():
                 raise ValueError("A foglalás időpontja nem lehet a múltban!")
@@ -51,6 +53,7 @@ class FoglalasiRendszer:
         for jarat in self._legitarsasag.jaratok:
             if jarat.jaratszam == jaratszam:
                 kivalasztott_jarat = jarat
+        # Megakadályozza a duplikált foglalásokat
         for foglalas in self._foglalasok:
             if (foglalas.utas_nev == utas_nev and foglalas.jarat.jaratszam == jaratszam and foglalas.datum.date() == foglalas_ideje.date()):
                 raise ValueError("Erre a járatra ezen a napon már van ilyen néven foglalás.")
@@ -62,6 +65,7 @@ class FoglalasiRendszer:
         self._foglalasok.append(uj_foglalas)
         return kivalasztott_jarat.get_ar()
 
+    # Meglévő foglalás törlése
     def foglalas_lemondasa(self, utas_nev, jaratszam, datum_str):
 
         lemondasi_datum = datetime.strptime(datum_str, "%Y-%m-%d")
@@ -75,6 +79,7 @@ class FoglalasiRendszer:
                 return True
         raise ValueError("Nem található a megadott adatokhoz tartozó aktív foglalás.")
 
+    # Aktív foglalások megjelenítése
     def foglalasok_listazasa(self):
         print("\n--- Aktív Foglalások ---")
         if not self._foglalasok:

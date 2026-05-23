@@ -5,6 +5,7 @@ class NemzetkoziJarat(Jarat):
         super().__init__(jaratszam, uticel, jegyar)
         self._repulesi_ido = repulesi_ido
     
+    # A nemzetközi járat repülési idejének lekérdezése
     @property
     def repulesi_ido(self):
         return self._repulesi_ido

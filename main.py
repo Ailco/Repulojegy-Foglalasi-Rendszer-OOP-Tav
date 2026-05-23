@@ -8,6 +8,7 @@ from foglalasi_rendszer import FoglalasiRendszer
 def main():
     wizz_air = LegiTarsasag("Wizz Air")
 
+    # Előre létrehozott járatok
     j1 = BelfoldiJarat("W6 2352", "Kaposvár", 5000, 35)
     j2 = NemzetkoziJarat("W6 2368", "Párizs", 20000, 145)
     j3 = NemzetkoziJarat("W6 2394", "Lisszabon", 15000, 180)
@@ -18,6 +19,7 @@ def main():
 
     rendszer = FoglalasiRendszer(wizz_air)
     
+    # Előre betöltött foglalások
     rendszer.alap_foglalas_hozzaadasa(JegyFoglalas(j1, "Kovács Luca", datetime(2026, 7, 20)))
     rendszer.alap_foglalas_hozzaadasa(JegyFoglalas(j1, "Varga Anna", datetime(2026, 7, 21)))
     rendszer.alap_foglalas_hozzaadasa(JegyFoglalas(j2, "Nagy Lili", datetime(2026, 8, 5)))
@@ -25,6 +27,7 @@ def main():
     rendszer.alap_foglalas_hozzaadasa(JegyFoglalas(j3, "Horváth Bence", datetime(2026, 9, 10)))
     rendszer.alap_foglalas_hozzaadasa(JegyFoglalas(j3, "Kiss Dávid", datetime(2026, 9, 11)))
 
+    # Konzolos felhasználói menü
     while True:
         print("\n=== REPÜLŐJEGY FOGLALÁSI RENDSZER ===")
         print("1. Jegy foglalása")
