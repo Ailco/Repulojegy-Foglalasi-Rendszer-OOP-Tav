@@ -29,15 +29,18 @@ def main():
 
     # Konzolos felhasználói menü
     while True:
-        print("\n=== REPÜLŐJEGY FOGLALÁSI RENDSZER ===")
-        print("1. Jegy foglalása")
-        print("2. Foglalás lemondása")
-        print("3. Foglalások listázása")
-        print("4. Kilépés")
+        print("1. Elérhető járatok listázása")
+        print("2. Jegy foglalása")
+        print("3. Foglalás lemondása")
+        print("4. Eddigi foglalások")
+        print("5. Kilépés")
         
-        valasztas = input("Válassz egy menüpontot (1-4): ")
+        valasztas = input("Válassz egy menüpontot (1-5): ")
 
         if valasztas == "1":
+            rendszer.jaratok_listazasa()
+        
+        elif valasztas == "2":
             rendszer.jaratok_listazasa()
             jaratszam = input("Kérem a foglalni kívánt járat számát: ")
             utas_nev = input("Kérem az utas nevét: ")
@@ -49,7 +52,7 @@ def main():
             except ValueError as e:
                 print(f"\nHiba történt a foglalás során: {e}")
         
-        elif valasztas == "2":
+        elif valasztas == "3":
             rendszer.foglalasok_listazasa()
             utas_nev = input("Kérem a lemondani kívánt foglalás utasának nevét: ")
             jaratszam = input("Kérem a járatszámot: ")
@@ -61,15 +64,15 @@ def main():
             except ValueError as e:
                 print(f"\nHiba történt a lemondás során: {e}")
         
-        elif valasztas == "3":
+        elif valasztas == "4":
             rendszer.foglalasok_listazasa()
         
-        elif valasztas == "4":
+        elif valasztas == "5":
             print("\nKilépés a programból.")
             break
         
         else:
-            print("\nÉrvénytelen választás! Kérlek az 1-4 közötti számok közül válassz.")
+            print("\nÉrvénytelen választás! Kérlek válassz 1-5 közötti számok közül.")
 
 if __name__ == "__main__":
     main()
