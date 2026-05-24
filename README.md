@@ -10,7 +10,6 @@ Egyszerű konzolos Python alkalmazás repülőjegyek foglalására, lemondásár
 - aktív foglalások megtekintése
 - hibás adatok kezelése
 - múltbeli dátum tiltása
-- nemzetközi járatoknál 50% felár számítása
 
 ## Osztályok
 
@@ -33,3 +32,4 @@ A program induláskor tartalmaz:
 
 ```bash
 python main.py
+```

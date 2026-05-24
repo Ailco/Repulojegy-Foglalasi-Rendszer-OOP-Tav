@@ -32,7 +32,7 @@ def main():
         print("1. Elérhető járatok listázása")
         print("2. Jegy foglalása")
         print("3. Foglalás lemondása")
-        print("4. Eddigi foglalások")
+        print("4. Aktív foglalások")
         print("5. Kilépés")
         
         valasztas = input("Válassz egy menüpontot (1-5): ")
@@ -48,7 +48,7 @@ def main():
             
             try:
                 fizetendo = rendszer.jegy_foglalasa(jaratszam, utas_nev, datum_str)
-                print(f"\nSikeres foglalás! Fizetendő összeg: {fizetendo:.0f} HUF.")
+                print(f"\nSikeres foglalás. Fizetendő összeg: {fizetendo:.0f} HUF.")
             except ValueError as e:
                 print(f"\nHiba történt a foglalás során: {e}")
         
@@ -72,7 +72,7 @@ def main():
             break
         
         else:
-            print("\nÉrvénytelen választás! Kérlek válassz 1-5 közötti számok közül.")
+            print("\nÉrvénytelen. Kérlek válassz 1-5 közötti számok közül.")
 
 if __name__ == "__main__":
     main()
